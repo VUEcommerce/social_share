@@ -1,3 +1,5 @@
+# Fork this because this package on pub have issue on android, the author fixed on git but have not published on pub.dev yet 
+
 # social_share
 
 Wide variety of sharing options you'll need to share directly to certain popular apps or just share with default native share.
