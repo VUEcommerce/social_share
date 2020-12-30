@@ -130,7 +130,7 @@ class SocialShare {
   }
 
   static Future<String> shareTwitter(String captionText,
-      {List<String> hashtags, String url, String trailingText}) async {
+      {List<String> hashtags, String url = '', String trailingText = ''}) async {
     Map<String, dynamic> args;
     String modifiedUrl;
     if (Platform.isAndroid) {
@@ -144,14 +144,13 @@ class SocialShare {
         tags += ("%23" + f.toString() + " ").toString();
       });
       args = <String, dynamic>{
-        "captionText":
-            Uri.parse(captionText + "\n" + tags.toString()).toString(),
+        "captionText": captionText + "\n" + tags.toString(),
         "url": modifiedUrl,
         "trailingText": Uri.parse(trailingText).toString()
       };
     } else {
       args = <String, dynamic>{
-        "captionText": Uri.parse(captionText + " ").toString(),
+        "captionText": captionText,
         "url": modifiedUrl,
         "trailingText": Uri.parse(trailingText).toString()
       };
